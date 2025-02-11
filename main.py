@@ -68,7 +68,7 @@ kpack_T_P = ReplyKeyboardMarkup(keyboard=[[button7]],resize_keyboard=True)
 
 @dp.message(CommandStart())
 async def command_start_handler(message: Message) -> None:
-   await message.answer(f"приветствуем тебя, {html.bold(message.from_user.full_name)}!" "Приветствуем вас,на связи ReferHub" "\n Мы рады видеть вас в нашей команде! Наша команда стремится создать уникальные возможности для заработка и взаимовыгодного сотрудничества." "\n список всех команд - (/Command)")
+   await message.answer(f"приветствуем тебя, {html.bold(message.from_user.full_name)}!" "Приветствуем вас,на связи ReferHub" "\n Мы рады видеть вас в нашей команде! Наша команда стремится создать уникальные возможности для заработка и взаимовыгодного сотрудничества." "\n список всех команд - (/list)")
 
 @dp.message(Command("list"))
 async def echo_handler(message: Message) -> None:
