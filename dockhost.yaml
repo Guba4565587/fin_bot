@@ -1,0 +1,15 @@
+version: 1
+project: finbot
+
+repositories:
+
+    echobot:
+
+        url: https://github.com/Guba4565587/fin_bot.git
+        branch: main
+
+        # Set CPU and Memory for first container startup
+
+        cpu: 1
+        cpuFraction: 20
+        memory: 256MiB
