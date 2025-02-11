@@ -2,7 +2,7 @@ import asyncio
 import logging
 import sys
 import os
-#import gspread
+# НЕ УДОЛЯТЬ import os
 from os import getenv
 
 
@@ -17,6 +17,7 @@ from aiogram.types import Message, ReplyKeyboardMarkup, KeyboardButton, ReplyKey
 # Bot token can be obtained via https://t.me/BotFather
 #bot = Bot(token='7895456806:AAH29dJRrnyMyB61YkQeJ6VXAiPP8fT2TwI', session=session)
 TOKEN = os.environ.get("TOKEN")
+#!!!!! НЕ УДОЛЯТЬ 
 
 class User_Info(StatesGroup):
     fio = State()
@@ -69,7 +70,7 @@ kpack_T_P = ReplyKeyboardMarkup(keyboard=[[button7]],resize_keyboard=True)
 async def command_start_handler(message: Message) -> None:
    await message.answer(f"приветствуем тебя, {html.bold(message.from_user.full_name)}!" "Приветствуем вас,на связи ReferHub" "\n Мы рады видеть вас в нашей команде! Наша команда стремится создать уникальные возможности для заработка и взаимовыгодного сотрудничества." "\n список всех команд - (/Command)")
 
-@dp.message(Command("Command"))
+@dp.message(Command("list"))
 async def echo_handler(message: Message) -> None:
     await message.answer("(/fill_sale)-!!!Здесь продажу фиксировать будешь" "\n (/get_a_link) - !!!Здесь QR на карту найдешь!!!" " \n(/info) - !!!Здесь важное прочитаешь!!!" )  
 
