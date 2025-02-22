@@ -17,6 +17,7 @@ from aiogram.types import Message, ReplyKeyboardMarkup, KeyboardButton, ReplyKey
 # Bot token can be obtained via https://t.me/BotFather
 #bot = Bot(token='7895456806:AAH29dJRrnyMyB61YkQeJ6VXAiPP8fT2TwI', session=session)
 TOKEN = os.environ.get("TOKEN")
+bot = Bot(token=TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
 #!!!!! НЕ УДОЛЯТЬ 
 
 class User_Info(StatesGroup):
@@ -154,21 +155,34 @@ async def cart_cl (message: Message, state: FSMContext) -> None:
     await message.answer(
         f"Отчёт:\n"
         f"ФИО : {a}\n"
-        f"НОМЕР ТЕФОНА: {b}\n"
+        f"НОМЕР ТЕЛФОНА КЛИЕНТА : {b}\n"
         f"ФИО КЛИЕНТА: {c} \n"
         f"КАРТУ КОТОРУЮ ОФОРМИЛ:\n{d}",
         reply_markup=kpack_2
     )
     #await message.answer(reply_markup=kpack_2)
     #await message.answer("отчёт:" + str(a) + str(b) + str(c),reply_markup=kpack_2)
-    await message.answer("⚠️проверь всё ли правильно заполнил⚠️,\n✅ Скопируй это сообщение и отправь нам в https://t.me/c/2439168878/6✅")
+    await message.answer("⚠️проверь всё ли правильно заполнил⚠️,)
     
 
 
 @dp.message(Command("отправить"))  
 async def echo_handler (message: Message, state: FSMContext) -> None:
+    data = await state.get_data()
+    a = data.get("fio")
+    b = data.get("mi_number")
+    c = data.get("fio_client")
+    d = data.get("cart_cl")
+    x  = 
+        f"Отчёт:\n"
+        f"ФИО : {a}\n"
+        f"НОМЕР ТЕЛФОНА КЛИЕНТА : {b}\n"
+        f"ФИО КЛИЕНТА: {c} \n"
+        f"КАРТУ КОТОРУЮ ОФОРМИЛ:\n{d}"
+    await bot.send_message(1216877075, x ,reply_markup=ReplyKeyboardRemove())
+    await bot.send_message(1200401214, x ,reply_markup=ReplyKeyboardRemove())
+   #await message.answer("✅ Скопируй это сообщение и отправь нам в @ref_bro✅",reply_markup=ReplyKeyboardRemove())
     await state.clear()
-    await message.answer("✅ Скопируй это сообщение и отправь нам в @ref_bro✅",reply_markup=ReplyKeyboardRemove())
 @dp.message(Command("Изменить"))
 async def ответ_2 (message: Message, state: FSMContext) -> None:
     await state.clear()
@@ -177,7 +191,7 @@ async def ответ_2 (message: Message, state: FSMContext) -> None:
 
 async def main() -> None:
     # Initialize Bot instance with default bot properties which will be passed to all API calls
-    bot = Bot(token=TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
+    #bot = Bot(token=TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
     dp.include_router(user_info)
 
     # And the run events dispatching
