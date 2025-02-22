@@ -14,8 +14,7 @@ from aiogram.fsm.state import State, StatesGroup
 from aiogram.filters import CommandStart, Command
 from aiogram.types import Message, ReplyKeyboardMarkup, KeyboardButton, ReplyKeyboardRemove, InlineKeyboardButton, InlineKeyboardMarkup
 
-# Bot token can be obtained via https://t.me/BotFather
-#bot = Bot(token='7895456806:AAH29dJRrnyMyB61YkQeJ6VXAiPP8fT2TwI', session=session)
+
 TOKEN = os.environ.get("TOKEN")
 bot = Bot(token=TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
 #!!!!! НЕ УДОЛЯТЬ 
@@ -127,7 +126,7 @@ async def fio(message: Message, state: FSMContext) -> None:
 #ответ на вопрос х (fio)
     await state.update_data(fio = message.text)
     await state.set_state(User_Info.mi_number)
-    await message.answer("твой номер телефона ?")
+    await message.answer("номер  телефона клиента ?")
 
 
 @user_info.message(User_Info.mi_number)
@@ -155,7 +154,7 @@ async def cart_cl (message: Message, state: FSMContext) -> None:
     await message.answer(
         f"Отчёт:\n"
         f"ФИО : {a}\n"
-        f"НОМЕР ТЕЛФОНА КЛИЕНТА : {b}\n"
+        f"НОМЕР ТЕЛЕФОНА КЛИЕНТА : {b}\n"
         f"ФИО КЛИЕНТА: {c} \n"
         f"КАРТУ КОТОРУЮ ОФОРМИЛ:\n{d}",
         reply_markup=kpack_2
@@ -173,12 +172,12 @@ async def echo_handler (message: Message, state: FSMContext) -> None:
     b = data.get("mi_number")
     c = data.get("fio_client")
     d = data.get("cart_cl")
-    x  = 
-        f"Отчёт:\n"
+    x  = (f"Отчёт:\n"
         f"ФИО : {a}\n"
         f"НОМЕР ТЕЛФОНА КЛИЕНТА : {b}\n"
         f"ФИО КЛИЕНТА: {c} \n"
         f"КАРТУ КОТОРУЮ ОФОРМИЛ:\n{d}"
+    )
     await bot.send_message(1216877075, x ,reply_markup=ReplyKeyboardRemove())
     await bot.send_message(1200401214, x ,reply_markup=ReplyKeyboardRemove())
    #await message.answer("✅ Скопируй это сообщение и отправь нам в @ref_bro✅",reply_markup=ReplyKeyboardRemove())
