@@ -180,7 +180,8 @@ async def echo_handler (message: Message, state: FSMContext) -> None:
     )
     await bot.send_message(1216877075, x ,reply_markup=ReplyKeyboardRemove())
     await bot.send_message(1200401214, x ,reply_markup=ReplyKeyboardRemove())
-   #await message.answer("✅ Скопируй это сообщение и отправь нам в @ref_bro✅",reply_markup=ReplyKeyboardRemove())
+    await bot.send_message(7969634904, x ,reply_markup=ReplyKeyboardRemove()) 
+   #await message.answer("✅ Скопируй это сообщение и оправь нам в @ref_bro✅",reply_markup=ReplyKeyboardRemove())
     await state.clear()
 @dp.message(Command("Изменить"))
 async def ответ_2 (message: Message, state: FSMContext) -> None:
