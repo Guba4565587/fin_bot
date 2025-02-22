@@ -162,7 +162,7 @@ async def cart_cl (message: Message, state: FSMContext) -> None:
     )
     #await message.answer(reply_markup=kpack_2)
     #await message.answer("отчёт:" + str(a) + str(b) + str(c),reply_markup=kpack_2)
-    await message.answer("⚠️проверь всё ли правильно заполнил⚠️,)
+    await message.answer("⚠️проверь всё ли правильно заполнил⚠️")
     
 
 
